@@ -1,4 +1,5 @@
 # Implementação - Algoritmo Branch and Bound em C++ utilizando GLPK
+## Vídeo de apresentação: https://www.loom.com/share/fb13d25a263b4faeb514fc8ffe304802?sid=c6342916-81fc-42ed-aa1a-4f8c030dd85a
 
 [![C++](https://img.shields.io/badge/C%2B%2B-11-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B)
 [![Docker](https://img.shields.io/badge/Docker-20.10.7-blue.svg)](https://www.docker.com/)
