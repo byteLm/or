@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.10)
+project(BranchAndBound)
+
+# Packages
+find_package(glpk)
+
+# include dir
+set(UTILS_DIR ${CMAKE_SOURCE_DIR}/src/utils/)
+include_directories(${UTILS_DIR}/include/)
+
+
+set(SRC_FILES 
+    ${UTILS_DIR}/lib/ProblemReader.cpp
+    ${UTILS_DIR}/lib/GLPKSolver.cpp
+    ${UTILS_DIR}/lib/BranchAndBound.cpp)
+
+# Configura o executável
+add_executable(branch_and_bound main.cpp ${SRC_FILES})
+                            
+
+# Linka com as bibliotecas necessárias
+target_link_libraries(branch_and_bound 
+    PRIVATE 
+    glpk::glpk)
+
+# Configura o executável para ser gerado na pasta bin
+set_target_properties(branch_and_bound PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE}")
+
+add_subdirectory(tests/bb_unit_tests)
