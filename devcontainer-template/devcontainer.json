@@ -1,0 +1,30 @@
+
+{
+    "name": "Meu Ambiente de Desenvolvimento - Branch-and-Bound",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    
+    "workspaceFolder": "/app/", 
+
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app/,type=bind"
+    ],
+
+    "customizations": {
+        "vscode": {
+        "extensions": [
+            "ms-vscode-remote.remote-containers",
+            "ms-vscode.cpptools-extension-pack",
+            "ms-vscode.cmake-tools",
+            "matepek.vscode-catch2-test-adapter"
+            ]
+        },
+        "settings": {
+        "cmake.useCMakePresets": "always",
+        "testMate.cpp.test.executables": "{build,Build,BUILD,out,Out,OUT}/**/*{test,Test,TEST}*"
+        }
+    }
+   
+}

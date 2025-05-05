@@ -1,0 +1,54 @@
+{
+    // See https://code.visualstudio.com/docs/editor/tasks for more information
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Conan Fetch Dependencies - Release",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+            "-c",
+            "conan install conan/conanfile.txt --build=missing --profile:build=conan/profile_release.txt --profile:host=conan/profile_release.txt --output-folder=build && cp -r ${workspaceFolder}/build/CMakePresets.json ."
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Fetch dependencies using Conan and copy CMakePresets.json."
+        },
+        {
+            "label": "Conan Fetch Dependencies - Debug",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+            "-c",
+            "conan install conan/conanfile.txt --build=missing --profile:build=conan/profile_debug.txt --profile:host=conan/profile_debug.txt --output-folder=build && cp -r ${workspaceFolder}/build/CMakePresets.json ."
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Fetch dependencies using Conan for Debug configuration and copy CMakePresets.json."
+        },
+        {
+            "label": "Run Example -Release",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "./build/bin/Release/branch_and_bound"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Run the example program."
+        },
+        {
+            "label": "Run Example -Debug",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "./build/bin/Debug/branch_and_bound"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Run the example program."
+        }
+    ]
+}
